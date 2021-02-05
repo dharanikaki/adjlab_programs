@@ -1,0 +1,61 @@
+<html>
+<head>
+<script language="javascript">
+function getQuantity(isbn,index)
+{
+var q=1;
+q=parseInt(prompt("Enter Quantity")); 
+var link="./addcart.jsp?isbn="+isbn+"&quantity="+q;
+document.links[index].href=link;
+}
+</script>
+<body>
+	<%@ page import="java.sql.*"%>
+	<%!Connection con;
+	Statement st;
+	ResultSet rs;
+	int no;
+	String type, img, name, au, pub, pr, isbn;%>
+	<%
+		Class.forName("com.mysql.jdbc.Driver");
+		String url = "jdbc:mysql://localhost:3306/onlinestore";
+		con = DriverManager.getConnection(url, "root", "");
+		st = con.createStatement();
+		PreparedStatement ps = con.prepareStatement("select * from books");
+		rs = ps.executeQuery();
+	%>
+	<h3>All types of Books</h3>
+	<br>
+	<br>
+	<br>
+	<table border=2>
+		<td>Book Image
+		<td>Book Details
+		<td>Price
+		<td>Adding to Cart
+		</tr>
+		<%
+			int i = 0;
+			while (rs.next()) {
+		%>
+		<tr>
+			<%
+				img = rs.getString(5);
+			%>
+			<td><img src=".\imgs\<%=img%>.JPG" width=100 height=100> <%
+ 	name = rs.getString(1);
+ 		au = rs.getString(2);
+ 		pub = rs.getString(3);
+ 		pr = rs.getString(4);
+ 		isbn = rs.getString(7);
+ %>
+			<td>Book Name:<b><%=name%></b><br> Author:<b><%=au%></b><br>
+				Publication:<b><%=pub%></b>
+			<td><b><%=pr%></b>
+			<td><a href=# onClick=getQuantity(<%=isbn%>,<%=i%>)> <img
+					src="./imgs/cart.JPG"></a> <%
+ 	i++;
+ 	}
+ %>
+</body>
+</html>

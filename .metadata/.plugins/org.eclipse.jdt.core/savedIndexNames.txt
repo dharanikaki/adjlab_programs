@@ -1,0 +1,23 @@
+INDEX VERSION 1.130+C:\Users\Dharani Kaki\Desktop\adj\.metadata\.plugins\org.eclipse.jdt.core
+3003661820.index
+3184768462.index
+85063511.index
+2277103889.index
+99089218.index
+940917687.index
+2546049977.index
+2773322850.index
+1899701403.index
+2020150153.index
+3440240894.index
+2014074597.index
+2506898640.index
+83179356.index
+3962916342.index
+3997795397.index
+4077271688.index
+704736326.index
+3782197741.index
+762095711.index
+1258550881.index
+1354805577.index

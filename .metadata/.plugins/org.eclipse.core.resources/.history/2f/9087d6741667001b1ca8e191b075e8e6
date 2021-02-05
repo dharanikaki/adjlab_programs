@@ -1,0 +1,53 @@
+package servlet;
+
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+/** Example using servlet initialization. Here, the message
+ *  to print and the number of times the message should be
+ *  repeated is taken from the init parameters.
+ */
+public class LoginClass extends HttpServlet 
+{
+public void doPost(HttpServletRequest request, HttpServletResponse response)
+       	 throws ServletException, IOException 
+	{
+     	 response.setContentType("text/html");
+	  String na=request.getParameter("name");
+	  String pa=request.getParameter("pass");
+	  PrintWriter out = response.getWriter();
+	  Cookie nam1=new Cookie("user1","pace");
+	  Cookie nam2=new Cookie("user2","phani");
+	  Cookie nam3=new Cookie("user3","cse");
+	  Cookie nam4=new Cookie("user4","ece");
+	  Cookie pas1=new Cookie("pwd1","college");
+	  Cookie pas2=new Cookie("pwd2","kumar");
+	  Cookie pas3=new Cookie("pwd3","it");
+	  Cookie pas4=new Cookie("pwd4","eee");
+	  int flag=0;
+	  String nam[]={nam1.getValue(),nam2.getValue(),nam3.getValue(),nam4.getValue()};
+	  String pas[]={pas1.getValue(),pas2.getValue(),pas3.getValue(),pas4.getValue()};
+	  for(int i=0;i<4;i++)
+	  {
+		  
+if(nam[i].equals(na)&&pas[i].equals(pa))
+	  	{
+		  flag=1;
+	  	}
+	}
+	if(flag==1)
+	{
+  out.println("<title>The ShowMessage Servlet</title>");
+out.println("<BODY BGCOLOR=\"#FDF5E6\">\n" +"<H1 ALIGN=CENTER> WELCOME <br/>TO</br> " +na.toUpperCase() + "</H1>");
+      		out.println("</BODY></HTML>");
+	  }
+	  else
+	  {
+ out.println("<title>The ShowMessage Servlet</title>");
+out.println("<BODY BGCOLOR=\"#FDF5E6\">\n" + "<H1 ALIGN=CENTER> User is invalid </H1>");
+    		  out.println("</BODY></HTML>");
+	}
+
+     }
+}
+

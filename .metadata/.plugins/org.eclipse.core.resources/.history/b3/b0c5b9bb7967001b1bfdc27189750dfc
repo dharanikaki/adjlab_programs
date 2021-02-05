@@ -1,0 +1,11 @@
+<html>
+<body bgcolor="pink">
+<form action="show" method="get">
+<center>User Name: <input type="test" name="name"><br>
+Password:<input type="password" name="pass"><br>
+<input type="submit" name="b1">
+<input type="Button" name="b2" value="Reset">
+</center>
+</form>
+</body>
+</html>
